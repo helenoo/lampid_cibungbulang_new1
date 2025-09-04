@@ -1,0 +1,442 @@
+:root {
+    --bg-color: #f4f7fc;
+    --card-bg: #ffffff;
+    --text-primary: #1D3557;
+    --text-secondary: #6c757d;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --border-radius: 12px;
+    --primary-color: #4A90E2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: var(--card-bg);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding-left: 260px; 
+    width: 100%;
+    background-color: var(--bg-color);
+}
+
+.content {
+    padding: 2rem;
+}
+
+.sidebar-header {
+    padding: 1.5rem; text-align: center; border-bottom: 1px solid #eee;
+}
+.sidebar-header h3 {
+    margin: 0; color: var(--text-primary); font-size: 1.5rem;
+}
+.sidebar-header p {
+    margin: 0; font-size: 0.9rem; color: var(--text-secondary);
+}
+.sidebar-nav {
+    list-style: none; padding: 1rem 0; flex-grow: 1;
+}
+.sidebar-nav li a {
+    display: block; padding: 1rem 1.5rem; color: var(--text-secondary);
+    text-decoration: none; font-weight: 500; transition: all 0.2s ease-in-out;
+    border-left: 4px solid transparent;
+}
+.sidebar-nav li a:hover {
+    background-color: #f4f7fc; color: var(--primary-color); border-left-color: var(--primary-color);
+}
+.sidebar-nav li.active > a {
+    background-color: #e9eff8; color: var(--primary-color); font-weight: 600;
+    border-left-color: var(--primary-color);
+}
+.sidebar-nav li:last-child {
+    margin-top: auto; border-top: 1px solid #eee;
+}
+
+.welcome-header {
+    margin-bottom: 2rem;
+}
+.welcome-header h1, .welcome-header h2 {
+    font-weight: 600; color: var(--text-primary); font-size: 1.75rem;
+}
+.welcome-header p {
+    color: var(--text-secondary);
+}
+
+.button {
+    background-color: var(--primary-color); color: white; padding: 0.75rem 1.5rem;
+    border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+    font-size: 1rem; transition: background-color 0.2s ease; text-decoration: none;
+}
+.button:hover {
+    background-color: #357ABD;
+}
+.button-secondary {
+    background-color: #6c757d;
+}
+.button-secondary:hover {
+    background-color: #5a6268;
+}
+
+.filter-form {
+    background: var(--card-bg); padding: 1rem; border-radius: var(--border-radius);
+    box-shadow: var(--shadow); display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 2rem; flex-wrap: wrap;
+}
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    display: block; margin-bottom: 0.5rem; font-weight: 600;
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 0.75rem 1rem; border: 1px solid #ccc;
+    border-radius: 8px; font-family: 'Poppins', sans-serif; font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.table-wrapper {
+    background: var(--card-bg); padding: 1.5rem; border-radius: var(--border-radius);
+    box-shadow: var(--shadow); overflow-x: auto;
+}
+
+.data-table {
+    width: 100%; border-collapse: collapse;
+}
+.data-table th, .data-table td {
+    padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid #eee;
+    white-space: nowrap;
+}
+.data-table thead th {
+    font-weight: 600; color: var(--text-secondary);
+}
+.data-table tfoot td {
+    font-weight: 600;
+}
+.data-table tbody tr:hover {
+    background-color: #f9faff;
+}
+
+.main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+.chart-wrapper, .info-wrapper { background: var(--card-bg); padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+.chart-container { position: relative; height: 350px; }
+
+.status { padding: 0.25rem 0.5rem; border-radius: 5px; color: white; font-size: 0.8rem; font-weight: 600; }
+.status-sudah { background-color: #28a745; }
+.status-belum { background-color: #dc3545; }
+
+.kategori-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2rem; 
+
+    max-width: 900px; 
+    margin-left: auto;
+    margin-right: auto;
+}
+.kategori-card { background: var(--card-bg); border-radius: var(--border-radius); box-shadow: var(--shadow); padding: 1.5rem; display: flex; align-items: center; position: relative; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.kategori-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.kategori-icon { font-size: 2.5rem; color: var(--primary-color); margin-right: 1.5rem; }
+.kategori-info h3 { margin: 0 0 0.25rem 0; }
+.kategori-detail-link { position: absolute; right: 1.5rem; text-decoration: none; color: var(--primary-color); font-weight: 600; opacity: 0; transition: opacity 0.2s ease; }
+.kategori-card:hover .kategori-detail-link { opacity: 1; }
+
+.form-wrapper { max-width: 800px; background: var(--card-bg); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+.alert { padding: 1rem; margin-bottom: 1rem; border-radius: 8px; border: 1px solid transparent; }
+.alert-success { color: #155724; background-color: #d4edda; border-color: #c3e6cb; }
+.alert-danger { color: #721c24; background-color: #f8d7da; border-color: #f5c6cb; }
+.admin-page .content .form-wrapper {
+    max-width: 900px; /* Atur lebar maksimal form */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer {
+    text-align: center; padding: 1rem; background-color: var(--card-bg);
+    border-top: 1px solid #eee; color: var(--text-secondary); font-size: 0.9rem;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    background-image: url('../image/logo.png');
+    background-repeat: no-repeat;
+    background-position: center 20px;
+    background-size: 100px;
+    background-attachment: fixed;
+}
+.login-container {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: 150px;
+    position: relative;
+    z-index: 1;
+}
+.login-header {
+    margin-bottom: 2rem;
+}
+.login-header h2 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+.login-header p {
+    color: var(--text-secondary);
+}
+.login-form .input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+.login-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+.login-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+.login-form .button {
+    width: 100%;
+}
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.landing-page .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.landing-header {
+    background-color: var(--card-bg);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.landing-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.landing-header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.landing-header .logo img {
+    height: 50px;
+    margin-right: 1rem;
+}
+
+.landing-header .logo h1 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.landing-header .logo p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.hero {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+}
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+}
+.hero .subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+    opacity: 0.9;
+}
+
+.about {
+    padding: 3rem 0;
+}
+.about .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+.about-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+.about-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+}
+.about-card p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.stats {
+    padding: 3rem 0;
+    background-color: #e9eff8;
+}
+.stats h3 {
+    text-align: center;
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+.stat-item {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+.stat-item h4 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+.stat-item p {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.landing-footer {
+    background-color: var(--text-primary);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+/* -- Style untuk Bagian Template di Dashboard Desa -- */
+.template-section h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+.template-section p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+.template-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.button.button-logout {
+    background-color: #dc3545; 
+}
+.button.button-logout:hover {
+    background-color: #c82333;
+}
+
+/* -- Style Tata Letak Dua Kolom di Dashboard Desa -- */
+.desa-dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Kolom kiri lebih kecil dari kanan */
+    gap: 2rem; /* Jarak antar kolom */
+    align-items: start;
+}
+
+.template-section .template-links {
+    display: flex;
+    flex-direction: column; /* Tombol template berjejer ke bawah */
+    gap: 1rem;
+}
+
+.button.button-upload {
+    background-color: #28a745; /* Warna hijau untuk upload */
+    width: 100%;
+}
+
+.button.button-upload:hover {
+    background-color: #218838;
+}
+
+/* Penyesuaian untuk layar kecil (mobile) */
+@media (max-width: 992px) {
+    .desa-dashboard-grid {
+        grid-template-columns: 1fr; /* Di layar kecil, kolom menjadi 1 */
+    }
+}
+
+@media (max-width: 992px) {
+    .main-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+    .sidebar { width: 100%; height: auto; position: relative; }
+    .main-content { padding-left: 0; }
+    .admin-wrapper { flex-direction: column; }
+    .content { padding: 1rem; }
+    .filter-form { flex-direction: column; align-items: stretch; }
+    .login-body { background-position: center 10px; }
+    .login-container { margin-top: 100px; }
+    .about .container { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+}
